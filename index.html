@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Unifranz</title>
+    <style>
+        body { background-color: #12161b; color: white; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #1a1f26; padding: 40px; border-radius: 12px; width: 320px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h2 { color: #f05a28; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: 1px solid #333; background: #0d1117; color: white; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #f05a28; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button:hover { background: #d4491d; }
+        a { color: #aaa; text-decoration: none; font-size: 0.8rem; display: block; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Crear Cuenta</h2>
+        <p style="color: #aaa; font-size: 0.9rem;">Regístrate para acceder al portal</p>
+        <input type="text" id="reg_user" placeholder="Nombre de Usuario">
+        <input type="password" id="reg_pass" placeholder="Contraseña">
+        <button onclick="registrar()">Registrar</button>
+        <a href="login.html">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
+
+    <script>
+        function registrar() {
+            const user = document.getElementById('reg_user').value;
+            const pass = document.getElementById('reg_pass').value;
+
+            if(user === "" || pass === "") {
+                alert("Por favor, llena todos los campos.");
+                return;
+            }
+
+            // Guardar datos en el navegador
+            localStorage.setItem('usuarioRegistrado', user);
+            localStorage.setItem('passwordRegistrada', pass);
+
+            alert("Registro exitoso. Ahora inicia sesión.");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
